@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalvi.AI</title>
+    <script>
+      // Minimal process polyfill for the browser.
+      // Actual secrets (API_KEY, SUPABASE_URL, SUPABASE_KEY) are injected at
+      // build time from environment variables — see vite.config.ts.
+      window.process = window.process || { env: { NODE_ENV: 'production' } };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              kalvi: {
+                terracotta: '#EA580C',
+                terracottaDark: '#C2410C',
+                coffee: '#6B5643', 
+                mustard: '#F59E0B',
+                sand: '#DCC7A1',
+                ivory: '#F4EEE4',
+                charcoal: '#0F172A',
+                warmGray: '#EAD9C5', 
+                blue: '#EA580C', 
+                indigo: '#4338CA', 
+                sky: '#DCC7A1',
+                green: '#34A853',
+                yellow: '#F59E0B',
+              }
+            },
+            fontFamily: {
+              sans: ['Outfit', 'Noto Sans Tamil', 'sans-serif'],
+              heading: ['Space Grotesk', 'Noto Sans Tamil', 'sans-serif'],
+              serif: ['Playfair Display', 'serif'],
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-out',
+              'fade-in-up': 'fadeInUp 0.6s ease-out',
+              'slide-up': 'slideUp 0.4s ease-out',
+              'bounce-in': 'bounceIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+              'float': 'float 6s ease-in-out infinite',
+              'float-delayed': 'float 7s ease-in-out infinite 1s',
+              'float-slow': 'float 8s ease-in-out infinite 2s',
+              'spin-slow': 'spin 12s linear infinite',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(20px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              bounceIn: {
+                '0%': { opacity: '0', transform: 'scale(0.8)' },
+                '100%': { opacity: '1', transform: 'scale(1)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Outfit', 'Noto Sans Tamil', sans-serif;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Space Grotesk', 'Noto Sans Tamil', 'sans-serif';
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: rgba(128, 128, 128, 0.2);
+        border-radius: 10px;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/client": "https://aistudiocdn.com/react-dom@^19.2.1/client",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@2"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
