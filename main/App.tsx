@@ -40,6 +40,12 @@ const App: React.FC = () => {
 
   const t = TRANSLATIONS[language];
 
+  // Keep the document's declared language in sync with the UI language so
+  // screen readers use the correct pronunciation/voice for Tamil content.
+  useEffect(() => {
+    document.documentElement.lang = language === 'ta' ? 'ta' : 'en';
+  }, [language]);
+
   useEffect(() => {
     const savedTheme = localStorage.getItem('kalvi_theme') as 'light' | 'dark';
     if (savedTheme) setTheme(savedTheme);

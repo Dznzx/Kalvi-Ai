@@ -18,7 +18,9 @@ interface StudentPortfolioProps {
   badges: BadgeType[];
 }
 
-const STORAGE_KEY = 'bharatStack_portfolio_projects';
+const STORAGE_KEY = 'kalvi_portfolio_projects';
+// Older builds saved this under a leftover template key; migrate any existing data once.
+const LEGACY_STORAGE_KEY = 'bharatStack_portfolio_projects';
 
 export const StudentPortfolio: React.FC<StudentPortfolioProps> = ({ language, studentName, userStats, badges }) => {
   const [projects, setProjects] = useState<PortfolioProject[]>([]);
@@ -30,7 +32,16 @@ export const StudentPortfolio: React.FC<StudentPortfolioProps> = ({ language, st
 
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
+      let raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) {
+        // One-time migration from the old key so existing users don't lose saved projects.
+        const legacy = localStorage.getItem(LEGACY_STORAGE_KEY);
+        if (legacy) {
+          localStorage.setItem(STORAGE_KEY, legacy);
+          localStorage.removeItem(LEGACY_STORAGE_KEY);
+          raw = legacy;
+        }
+      }
       if (raw) setProjects(JSON.parse(raw));
     } catch {
       // ignore corrupted storage

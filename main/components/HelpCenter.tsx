@@ -149,9 +149,12 @@ const HelpCenter: React.FC<HelpCenterProps> = ({
                 : "Chat directly with our team or send us an email."}
             </p>
             
-            <button className="bg-white text-[#C6563B] px-6 md:px-8 py-3 rounded-full font-semibold hover:bg-[#F9F6F0] transition shadow-lg active:scale-95 transform duration-200 text-sm md:text-base">
+            <a
+                href="mailto:support@kalvi.ai"
+                className="inline-block bg-white text-[#C6563B] px-6 md:px-8 py-3 rounded-full font-semibold hover:bg-[#F9F6F0] transition shadow-lg active:scale-95 transform duration-200 text-sm md:text-base"
+            >
                 {t.contact} Support
-            </button>
+            </a>
         </div>
         </div>
 

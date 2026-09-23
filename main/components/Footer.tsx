@@ -36,8 +36,9 @@ export const Footer: React.FC<FooterProps> = ({
             </p>
             <div className="flex gap-4">
               {['twitter', 'linkedin', 'facebook', 'instagram'].map(platform => (
-                <div key={platform} className="w-10 h-10 rounded-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 flex items-center justify-center hover:bg-orange-600 dark:hover:bg-orange-600 hover:text-white hover:border-orange-600 transition-all cursor-pointer text-gray-400 dark:text-gray-500">
-                    <span className="sr-only">{platform}</span>
+                // Social accounts aren't live yet — shown as non-interactive placeholders
+                // instead of fake clickable links so we don't imply a destination that doesn't exist.
+                <div key={platform} aria-hidden="true" className="w-10 h-10 rounded-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-300 dark:text-gray-600">
                     <div className="w-4 h-4 bg-current rounded-sm"></div>
                 </div>
               ))}
@@ -74,7 +75,7 @@ export const Footer: React.FC<FooterProps> = ({
         <div className="h-px bg-gray-200 dark:bg-white/5 mb-10"></div>
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-xs font-bold text-gray-500 dark:text-gray-600 tracking-wider uppercase">
-            <p>© 2025 KALVI.AI. {t.footerRights}</p>
+            <p>© {new Date().getFullYear()} KALVI.AI. {t.footerRights}</p>
             <div className="flex items-center gap-2">
                 {t.footerMadeWith}
             </div>
